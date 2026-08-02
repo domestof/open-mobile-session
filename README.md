@@ -3,8 +3,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A [Claude Code](https://code.claude.com) skill that lets you, from your
-phone, quickly spin up a brand-new sandboxed workspace — running on your
-own Linux PC, or wherever you have Claude Code running, not in the cloud.
+phone, quickly spin up a brand-new sandboxed workspace on a real machine
+with its own shell and filesystem — wherever you run Claude Code (a
+laptop, a home server, your own cloud instance) — instead of the
+browser-based claude.ai chat.
 
 ## The problem
 
