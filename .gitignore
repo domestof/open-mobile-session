@@ -1,0 +1,11 @@
+# Log left behind by a Remote Control session started with this skill
+rc.log
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editor cruft
+.vscode/
+.idea/
+*.swp
