@@ -9,6 +9,8 @@ with its own shell and filesystem — wherever you run Claude Code (a
 laptop, a home server, your own cloud instance) — instead of the
 browser-based claude.ai chat.
 
+![Secure mobile coding: one command away](docs/secure-mobile-coding.png)
+
 ## The problem
 
 [Claude Code Remote Control](https://code.claude.com/docs/en/remote-control)
