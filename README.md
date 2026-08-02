@@ -101,20 +101,36 @@ match your own shell and take it down too).
 
 ## Safety model
 
-The skill is deliberately conservative about what it will do on your
-behalf:
+There are two different things being restricted here, and it's worth
+being precise about which is which.
 
-- It stays inside the target folder, with three narrow, read-only
+**While running the checklist itself**, the skill is deliberately
+conservative about what it will do on your behalf:
+
+- It only writes inside the target folder, with three narrow, read-only
   exceptions: Claude Code's own configuration (never written to),
   whether the sandbox probe file exists, and the process table / working
-  directory needed to verify the launch succeeded. Nothing else outside
-  the folder is read, written, or touched.
+  directory needed to verify the launch succeeded.
 - Nothing destructive (`rm -rf`, disk operations, force-push,
   uninstalling, stopping services) without asking first and stating
   exactly what will happen. No `sudo`.
-- If the sandbox probe doesn't come back `BLOCKED`, the skill stops and
-  tells you what's missing — it will not edit configuration to work
-  around an unenforced sandbox.
+
+**The sandbox it configures for the resulting session works
+differently, and it's important not to confuse the two.** By default,
+Claude Code's sandbox lets commands *read* almost anywhere on the
+machine — it only restricts *writes* to the working directory. The
+policy this skill writes (step 4 in the skill file) adds a read-`deny`
+rule for exactly three paths: `~/.ssh`, `~/.aws/credentials`, and
+`~/.claude/.credentials.json`. Nothing else on the filesystem is
+blocked from being read by the session you end up driving from your
+phone — only those three paths, plus everything outside the folder
+being unwritable. If you need broader read protection, add your own
+`denyRead` rules on top of this policy.
+
+The probe in step 5 checks exactly this write restriction — it tries to
+create a file in the home directory, which must fail. If it doesn't
+come back `BLOCKED`, the skill stops and tells you what's missing; it
+will not edit configuration to work around an unenforced sandbox.
 
 ## Further reading
 
