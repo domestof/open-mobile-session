@@ -116,13 +116,6 @@ behalf:
   tells you what's missing — it will not edit configuration to work
   around an unenforced sandbox.
 
-## Background
-
-This skill is the runnable version of a checklist originally written up as
-"One Claude Code Session Can Start Another," an article covering the
-rationale behind each sandbox flag and the sandbox's actual security
-coverage in more depth than fits here.
-
 ## Further reading
 
 The same "stop rather than guess" discipline behind this skill's checklist
