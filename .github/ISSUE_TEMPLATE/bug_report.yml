@@ -1,0 +1,51 @@
+name: Bug report
+description: The checklist failed, did the wrong thing, or gave a confusing result
+labels: ["bug"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Claude Code version
+      description: Output of `claude --version`
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - macOS
+        - Linux
+        - WSL2
+        - Other (native Windows, etc.)
+    validations:
+      required: true
+  - type: textarea
+    id: step
+    attributes:
+      label: Which step of the checklist failed?
+      description: See the numbered steps in skills/open-mobile-session/SKILL.md
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: What did the skill print at that point?
+      description: Paste the exact output, including any error message.
+      render: shell
+    validations:
+      required: true
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites installed (Linux only)
+      options:
+        - label: bubblewrap
+        - label: socat
+        - label: "@anthropic-ai/sandbox-runtime (optional)"
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+    validations:
+      required: false

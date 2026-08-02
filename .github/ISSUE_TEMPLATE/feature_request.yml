@@ -1,0 +1,26 @@
+name: Feature request
+description: Propose a change to the checklist or its documentation
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What situation does the current checklist not handle well?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you change?
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Does this touch any of the safety rules?
+      description: >-
+        No sudo, nothing destructive without asking, stay inside the target
+        folder, stop rather than guess. If your proposal would weaken one of
+        these, explain why here.
+    validations:
+      required: false
