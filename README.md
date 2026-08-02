@@ -1,6 +1,7 @@
 # open-mobile-session
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/domestof/open-mobile-session?style=social)](https://github.com/domestof/open-mobile-session/stargazers)
 
 A [Claude Code](https://code.claude.com) skill that lets you, from your
 phone, quickly spin up a brand-new sandboxed workspace on a real machine
