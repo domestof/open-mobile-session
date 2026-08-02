@@ -104,11 +104,11 @@ match your own shell and take it down too).
 The skill is deliberately conservative about what it will do on your
 behalf:
 
-- It stays inside the target folder — nothing outside it, not even to
-  read it.
-- The only read-only exceptions are Claude Code's own configuration
-  (never written to), checking for the sandbox probe file, and reading
-  the process table / working directory to verify the launch succeeded.
+- It stays inside the target folder, with three narrow, read-only
+  exceptions: Claude Code's own configuration (never written to),
+  whether the sandbox probe file exists, and the process table / working
+  directory needed to verify the launch succeeded. Nothing else outside
+  the folder is read, written, or touched.
 - Nothing destructive (`rm -rf`, disk operations, force-push,
   uninstalling, stopping services) without asking first and stating
   exactly what will happen. No `sudo`.
