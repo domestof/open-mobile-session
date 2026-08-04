@@ -132,6 +132,18 @@ create a file in the home directory, which must fail. If it doesn't
 come back `BLOCKED`, the skill stops and tells you what's missing; it
 will not edit configuration to work around an unenforced sandbox.
 
+## Limitations
+
+A session already running under this policy can't use this skill on
+itself to open a *different* session. Two separate parts of the same
+policy cause this: sandboxed Bash commands can only write inside their
+own working directory, and the `credentials` deny rule blocks reading
+`~/.claude/.credentials.json` — which any nested `claude` subprocess
+needs to authenticate, including the probe in step 5 and the
+`remote-control` launch in step 6 itself. Run this skill from a session
+that isn't already sandboxed by it — a fresh terminal, for example — to
+open sessions in new folders.
+
 ## Further reading
 
 The same "stop rather than guess" discipline behind this skill's checklist
